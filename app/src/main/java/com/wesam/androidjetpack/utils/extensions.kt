@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.wesam.androidjetpack.utils.TemperatureConvertor
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
@@ -14,7 +15,11 @@ fun View.changeBackgroundColor(colorId: Int) {
 fun TextView.changeTextColor (colorId:Int) {
     this.setTextColor(ContextCompat.getColor(this.context,colorId))
 }
-
-fun MutableStateFlow<String>.convertToCelsius() = this
+//TODO : encapsulate the function to temperatureInFahrenheit variable only
+fun MutableStateFlow<String>.convertToCelsius() : Flow<String> {
+    val temperatureConvertor = TemperatureConvertor()
+    return this
         .filter { fahrenheit -> fahrenheit.isNotEmpty() }
-        .map { fahrenheit -> TemperatureConvertor.convertFahrenheitToCelsius(fahrenheit) }
+        .map { fahrenheit -> temperatureConvertor.convertFahrenheitToCelsius(fahrenheit) }
+}
+

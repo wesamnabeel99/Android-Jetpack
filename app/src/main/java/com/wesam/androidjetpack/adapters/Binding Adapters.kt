@@ -8,6 +8,7 @@ import com.wesam.androidjetpack.extensions.changeBackgroundColor
 import com.wesam.androidjetpack.extensions.changeTextColor
 import com.wesam.androidjetpack.utils.TemperatureState
 
+//TODO : reduce duplication
 @BindingAdapter (value = ["temperatureBackground"])
 fun changeColorBasedOnTemperatureState(view : View, temperatureState : TemperatureState) {
     when (temperatureState) {
