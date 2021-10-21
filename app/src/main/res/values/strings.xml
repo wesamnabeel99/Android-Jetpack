@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android Jetpack</string>
+    <string name="tempratue_in_fahrenheit">tempratue in Fahrenheit</string>
+</resources>
