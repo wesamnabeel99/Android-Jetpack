@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    val temperatureInFahrenheit = MutableStateFlow("32")
-    val temperatureInCelsius = MutableStateFlow("0")
+    val temperatureInFahrenheit = MutableStateFlow("")
+    val temperatureInCelsius = MutableStateFlow("")
 
     val temperatureState = MutableStateFlow(TemperatureState.DEFAULT)
 
