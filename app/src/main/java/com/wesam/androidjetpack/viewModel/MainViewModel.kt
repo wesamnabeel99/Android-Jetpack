@@ -10,17 +10,17 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    val temperatureInFahrenheit = MutableStateFlow("")
-    val temperatureInCelsius = MutableStateFlow("")
+    val fahrenheitTemperature = MutableStateFlow("")
+    val celsiusTemperature = MutableStateFlow("")
 
     val temperatureState = MutableStateFlow(TemperatureState.DEFAULT)
 
-    fun updateCelsius() {
+    fun convertTemperature() {
         viewModelScope.launch {
-            temperatureInFahrenheit
+            fahrenheitTemperature
                 .convertToCelsius()
                 .collect { celsius ->
-                    temperatureInCelsius.emit(celsius)
+                    celsiusTemperature.emit(celsius)
                     changeTemperatureState()
                 }
         }
@@ -29,7 +29,7 @@ class MainViewModel : ViewModel() {
 
      private suspend fun changeTemperatureState() {
 
-            when (temperatureInCelsius.value.toInt()) {
+            when (celsiusTemperature.value.toInt()) {
 
                 in TemperatureRange.VERY_COLD_RANGE -> {
                     temperatureState.emit(TemperatureState.VERY_COLD)

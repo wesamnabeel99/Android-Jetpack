@@ -15,11 +15,16 @@ fun View.changeBackgroundColor(colorId: Int) {
 fun TextView.changeTextColor (colorId:Int) {
     this.setTextColor(ContextCompat.getColor(this.context,colorId))
 }
+
 //TODO : encapsulate the function to temperatureInFahrenheit variable only
 fun MutableStateFlow<String>.convertToCelsius() : Flow<String> {
     val temperatureConvertor = TemperatureConvertor()
     return this
-        .filter { fahrenheit -> fahrenheit.isNotEmpty() }
-        .map { fahrenheit -> temperatureConvertor.convertFahrenheitToCelsius(fahrenheit) }
+        .filter { fahrenheitTemperature ->
+            fahrenheitTemperature.isNotEmpty()
+        }
+        .map { fahrenheitTemperature ->
+            temperatureConvertor.convertFahrenheitToCelsius(fahrenheitTemperature)
+        }
 }
 
