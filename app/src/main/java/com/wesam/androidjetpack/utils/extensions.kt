@@ -1,7 +1,9 @@
 package com.wesam.androidjetpack.extensions
 
+import android.os.Build
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.wesam.androidjetpack.R
 import com.wesam.androidjetpack.model.Repository
@@ -12,13 +14,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 
+@RequiresApi(Build.VERSION_CODES.M)
 fun View.getColor (temperatureState : TemperatureState)  = when (temperatureState) {
-    TemperatureState.VERY_COLD ->  ContextCompat.getColor(this.context, R.color.blue)
-    TemperatureState.COLD -> ContextCompat.getColor(this.context, R.color.green)
-    TemperatureState.NORMAL -> ContextCompat.getColor(this.context, R.color.yellow)
-    TemperatureState.HOT -> ContextCompat.getColor(this.context, R.color.orange)
-    TemperatureState.VERY_HOT -> ContextCompat.getColor(this.context, R.color.red)
-    TemperatureState.DEFAULT -> ContextCompat.getColor(this.context, R.color.black)
+    TemperatureState.VERY_COLD ->  this.context.getColor(R.color.blue)
+    TemperatureState.COLD -> this.context.getColor(R.color.green)
+    TemperatureState.NORMAL -> this.context.getColor(R.color.yellow)
+    TemperatureState.HOT -> this.context.getColor(R.color.orange)
+    TemperatureState.VERY_HOT -> this.context.getColor( R.color.red)
+    TemperatureState.DEFAULT -> this.context.getColor(R.color.black)
 }
 fun View.changeBackgroundColor(color: Int) {
     this.setBackgroundColor(color)
