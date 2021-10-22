@@ -22,17 +22,17 @@
             android:inputType="numberDecimal"
             android:hint="@string/tempratue_in_fahrenheit"
             android:onTextChanged="@{()->viewModel.convertTemperature()}"
-            android:text="@={viewModel.fahrenheitTemperature}"
+            android:text="@={viewModel.fahrenheit}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-             />
+            />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tempratureTextColor="@{viewModel.temperatureState}"
-            android:text="@{viewModel.celsiusTemperature}"
+            android:text="@{viewModel.celsius}"
             android:textSize="20sp"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"

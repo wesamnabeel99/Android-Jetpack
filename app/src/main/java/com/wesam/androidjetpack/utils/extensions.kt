@@ -20,7 +20,6 @@ fun View.getColor (temperatureState : TemperatureState)  = when (temperatureStat
     TemperatureState.VERY_HOT -> ContextCompat.getColor(this.context, R.color.red)
     TemperatureState.DEFAULT -> ContextCompat.getColor(this.context, R.color.black)
 }
-
 fun View.changeBackgroundColor(color: Int) {
     this.setBackgroundColor(color)
 }

@@ -19,5 +19,4 @@ fun changeColorBasedOnTemperatureState(view : View, temperatureState : Temperatu
 fun changeTextColorBasedOnTemperatureState (textView: TextView , temperatureState: TemperatureState) {
     val color = textView.getColor(temperatureState)
     textView.changeTextColor(color)
-
 }
